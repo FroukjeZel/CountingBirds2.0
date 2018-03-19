@@ -97,10 +97,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         Button ButtonNext = (Button)findViewById(R.id.ButtonNext);
         ButtonNext.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(LoginActivity.this,MenuBar.class);
+                Intent intent = new Intent(LoginActivity.this,NavigationDrawer.class);
                 startActivity(intent);
             }
         });
+
     }
 
     private void populateAutoComplete() {
@@ -259,8 +260,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                 // Show primary email addresses first. Note that there won't be
                 // a primary email address if the user hasn't specified one.
-                ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");
-    }
+                ContactsContract.Contacts.Data.IS_PRIMARY + " DESC");    }
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
