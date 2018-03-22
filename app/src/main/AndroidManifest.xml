@@ -23,7 +23,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".NavigationDrawer"></activity>
+        <activity android:name=".NavigationDrawer" />
+        <activity android:name=".BedrijfActivity"></activity>
     </application>
 
 </manifest>
