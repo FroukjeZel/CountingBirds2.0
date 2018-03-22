@@ -25,6 +25,9 @@
         </activity>
         <activity android:name=".NavigationDrawer" />
         <activity android:name=".BedrijfActivity"></activity>
+        <activity android:name=".Vrijwilliger" />
+        <activity android:name=".Kalender"></activity>
+
     </application>
 
 </manifest>
