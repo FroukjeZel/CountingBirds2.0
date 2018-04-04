@@ -31,6 +31,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".NavigationDrawer" />
+        <activity android:name=".BedrijfActivity" />
+        <activity android:name=".Vrijwilliger" />
+        <activity android:name=".Kalender" />
+        <activity android:name=".Nesten" />
+        <activity android:name=".Toestand" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -44,8 +49,9 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:name=".GPS"
+            android:label="@string/title_activity_gps" />
+        <activity android:name=".Home"></activity>
     </application>
 
 </manifest>

@@ -97,7 +97,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         Button ButtonNext = (Button)findViewById(R.id.ButtonNext);
         ButtonNext.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                Intent intent = new Intent(LoginActivity.this,NavigationDrawer.class);
+                Intent intent = new Intent(LoginActivity.this,Home.class);
                 startActivity(intent);
             }
         });
