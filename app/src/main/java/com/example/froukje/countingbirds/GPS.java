@@ -1,5 +1,6 @@
 package com.example.froukje.countingbirds;
 
+import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
@@ -10,6 +11,12 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
 
 public class GPS extends NavigationDrawer implements OnMapReadyCallback {
 
@@ -40,10 +47,16 @@ public class GPS extends NavigationDrawer implements OnMapReadyCallback {
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        List<MapMarker> markers = new ArrayList<MapMarker>();
 
         // Add a marker in Sydney and move the camera
         MapMarker sydney = new MapMarker("Marker in Sydney", -34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney.getLocation()).title(sydney.getTitle()));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney.getLocation()));
+        markers.add(sydney);
+
+        for (MapMarker marker : markers)
+        {
+            mMap.addMarker(new MarkerOptions().position(marker.getLocation()).title(marker.getTitle()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(marker.getLocation()));
+        }
     }
 }
