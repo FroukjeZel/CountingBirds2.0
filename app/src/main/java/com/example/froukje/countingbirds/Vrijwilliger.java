@@ -14,12 +14,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-public class Vrijwilliger extends AppCompatActivity{
+public class Vrijwilliger extends NavigationDrawer{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vrijwilliger);
+        buildMenu();
 
 
         String[] vrijw = new String[] {"Joey Sparidaans", "Thierry Janson", "Froukje Zeldenrust",
@@ -29,11 +30,7 @@ public class Vrijwilliger extends AppCompatActivity{
         ListView listView = (ListView) findViewById(R.id.lijst);
         listView.setAdapter(adapter);
 
-
-
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
