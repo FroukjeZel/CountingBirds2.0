@@ -10,30 +10,30 @@ import java.util.Arrays;
 
 public class BedrijfActivity extends NavigationDrawer {
 
-    private ListView lvUpper ;
-    private ArrayAdapter<String> listAdapter ;
+    private ListView lvUpper;
+    private ArrayAdapter<String> listAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bedrijf);
-        buildMenu(); 
+        buildMenu();
 
-        lvUpper = (ListView) findViewById( R.id.lvUpper );
+        lvUpper = (ListView) findViewById(R.id.lvUpper);
 
-        String[] planets = new String[] { "Mercury", "Venus", "Earth", "Mars",
+        String[] planets = new String[]{"Mercury", "Venus", "Earth", "Mars",
                 "Jupiter", "Saturn", "Uranus", "Neptune"};
         ArrayList<String> planetList = new ArrayList<String>();
-        planetList.addAll( Arrays.asList(planets) );
+        planetList.addAll(Arrays.asList(planets));
 
         listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, planetList);
 
-        listAdapter.add( "Ceres" );
-        listAdapter.add( "Pluto" );
-        listAdapter.add( "Haumea" );
-        listAdapter.add( "Makemake" );
-        listAdapter.add( "Eris" );
+        listAdapter.add("Ceres");
+        listAdapter.add("Pluto");
+        listAdapter.add("Haumea");
+        listAdapter.add("Makemake");
+        listAdapter.add("Eris");
 
-        lvUpper.setAdapter( listAdapter );
+        lvUpper.setAdapter(listAdapter);
     }
 }
