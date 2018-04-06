@@ -17,19 +17,46 @@
         tools:context="com.example.froukje.countingbirds.Toestand">
 
 
-        <EditText
-        android:layout_width="350dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="32dp"
-            android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"/>
-
-        <EditText
+        <TextView
             android:layout_width="350dp"
-            android:layout_height="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="20dp"
+            android:text="NIEUWSITEM IJSVOGEL"
+            android:textStyle="bold"
+            android:textColor="@color/colorAccent"/>
+
+        <TextView
+            android:layout_width="350dp"
+            android:layout_height="233dp"
+            android:layout_marginLeft="-350dp"
+            android:layout_marginTop="50dp"
+            android:inputType="textMultiLine"
+            android:textColor="@color/black"
+            android:text="Grootte:\nDe Europese ijsvogel heeft inclusief snavel en vrij korte staart een lengte van 16 tot 17 cm.\n
+\nVerenkleed:\nDeze ijsvogel heeft een helder, lichtblauw rugdek en een oranjebruine onderzijde. Door zijn opvallende verenkleed lijkt het een exotische vogel. Het enige wat het mannetje van het vrouwtje onderscheidt is de kleur van de snavel. Bij het mannetje is deze geheel zwart, het vrouwtje heeft daarentegen een oranjerode vlek op de ondersnavel.\n
+\nLees meer op de volgende link:" />
+
+
+        <TextView
+            android:id="@+id/tvLink"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="290dp"
             android:layout_marginLeft="-350dp"
-            android:text="Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?"/>
+            android:textColor="@color/blue"
+            android:text="http://www.weidevogelvereniging.nl/"/>
+
+
+
+        <TextView
+            android:layout_width="349dp"
+            android:layout_height="235dp"
+            android:layout_marginLeft="-350dp"
+            android:layout_marginTop="330dp"
+            android:background="@drawable/ijsvogelfoto2" />
+
+
 
     </LinearLayout>
 
