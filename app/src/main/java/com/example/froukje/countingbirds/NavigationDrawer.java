@@ -102,6 +102,15 @@ public class NavigationDrawer extends AppCompatActivity {
                         }
                         break;
 
+                    case (R.id.logout):
+                        try {
+                            Intent intent = new Intent(NavigationDrawer.this, LoginActivity.class);
+                            startActivity(intent);
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                        break;
+
                 }
                 return true;
             }

@@ -19,9 +19,7 @@ public class Kalender extends NavigationDrawer {
         setContentView(R.layout.activity_kalender);
         buildMenu();
 
-        final EditText naam = (EditText) findViewById(R.id.calendar_editText_data_name);
-        final EditText locatie = (EditText) findViewById(R.id.calendar_editText_data_location);
-        final EditText tijd = (EditText) findViewById(R.id.calendar_editText_data_time);
+
 
         ListView list = (ListView) findViewById(R.id.calendar_list);
 
@@ -50,14 +48,10 @@ public class Kalender extends NavigationDrawer {
 
                 date += "/" + year;
                 if (date.equals("06/04/2018")) {
-                    naam.setText("Joey Sparidaans");
-                    locatie.setText("C.A. van Baalen, Gouden Steinstraat 55");
-                    tijd.setText("13:00 - 17:00");
+
 
                 } else {
-                    naam.setText("");
-                    locatie.setText("");
-                    tijd.setText("");
+
                 }
             }
         });
