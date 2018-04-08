@@ -18,10 +18,6 @@
     </string>
 
     <string name="action_settings">Settings</string>
-<<<<<<< HEAD
-=======
-
->>>>>>> master
     <string name="calendar_name">Name: </string>
     <string name="calendar_location">Location: </string>
     <string name="calendar_time">Time: </string>

@@ -7,7 +7,7 @@ public class MapMarker
     private LatLng location;
     private String title;
 
-    public MapMarker(String title, float latitude, float longitude)
+    public MapMarker(String title, double latitude, double longitude)
     {
         this.title = title;
         location = new LatLng(latitude, longitude);
