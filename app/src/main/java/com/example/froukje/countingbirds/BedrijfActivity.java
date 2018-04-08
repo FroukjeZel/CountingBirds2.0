@@ -1,8 +1,6 @@
 package com.example.froukje.countingbirds;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.AdapterView;
@@ -11,7 +9,6 @@ import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class BedrijfActivity extends NavigationDrawer {
 
