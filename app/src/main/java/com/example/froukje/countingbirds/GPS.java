@@ -1,8 +1,8 @@
 package com.example.froukje.countingbirds;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.example.froukje.countingbirds.map.MapMarker;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -10,9 +10,13 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class GPS extends FragmentActivity implements OnMapReadyCallback {
+import java.util.ArrayList;
+import java.util.List;
+
+public class GPS extends NavigationDrawer implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private List<MapMarker> markers = new ArrayList<MapMarker>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +26,8 @@ public class GPS extends FragmentActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        buildMenu();
     }
 
 
@@ -38,9 +44,23 @@ public class GPS extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        mMap.moveCamera( CameraUpdateFactory.newLatLngZoom(new LatLng(51.83196,5.1713) , 12.0f) );
+
+        MapMarker marker1 = new MapMarker("Kievit (4 eieren)", 51.83196, 5.1713);
+        markers.add(marker1);
+        MapMarker marker2 = new MapMarker("Grutto (3 eieren)", 51.841466, 5.173489);
+        markers.add(marker2);
+        MapMarker marker3 = new MapMarker("Ijsvogel (2 eieren)", 51.829818, 5.178072);
+        markers.add(marker3);
+        MapMarker marker4 = new MapMarker("Scholekster (5 eieren)", 51.829950, 5.143010);
+        markers.add(marker4);
+        MapMarker marker5 = new MapMarker("Tureluur (3 eieren)", 51.833370, 5.131423);
+        markers.add(marker5);
+
+        for (MapMarker marker : markers)
+        {
+            mMap.addMarker(new MarkerOptions().position(marker.getLocation()).title(marker.getTitle()));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(marker.getLocation()));
+        }
     }
 }
