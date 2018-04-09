@@ -6,6 +6,10 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+<<<<<<< HEAD
+=======
+import android.os.Bundle;
+>>>>>>> Joey
 import android.view.MenuItem;
 
 public class NavigationDrawer extends AppCompatActivity {
@@ -45,7 +49,7 @@ public class NavigationDrawer extends AppCompatActivity {
 
                     case (R.id.vrijwilligers):
                         try {
-                            Intent intent = new Intent(NavigationDrawer.this, Vrijwilliger.class);
+                            Intent intent = new Intent(NavigationDrawer.this, VrijwilligerActivity.class);
                             startActivity(intent);
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
