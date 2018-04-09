@@ -1,15 +1,12 @@
 package com.example.froukje.countingbirds;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.format.DateFormat;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CalendarView;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import com.android.volley.Request;
@@ -18,7 +15,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.froukje.countingbirds.Classes.Persoon;
 import com.example.froukje.countingbirds.Classes.Vrijwilliger;
 
 import org.w3c.dom.Document;
@@ -32,69 +28,73 @@ import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class Kalender extends NavigationDrawer {
+public class VrijwilligerActivity extends NavigationDrawer {
 
-    private String tagB = "";
     private DataReader dr = new DataReader();
     private ArrayList<Vrijwilliger> deVrijwilliger = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_kalender);
+        setContentView(R.layout.activity_vrijwilliger);
         buildMenu();
+
+
+        String[] vrijw = new String[]{"Joey Sparidaans", "Thierry Janson", "Froukje Zeldenrust",
+                "Mark Schevers"};
 
         getDataAlleVrijwilligers(dr.getStrIp());
 
-        ListView list = (ListView) findViewById(R.id.calendar_list);
+        final ListView listView = (ListView) findViewById(R.id.lijst);
 
-        CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView);
-        calendarView.setDate(System.currentTimeMillis(), false, true);
 
-        calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onSelectedDayChange(@NonNull CalendarView calendarView, int year, int month, int day) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                String date = "";
-
-                month += 1;
-
-                if (day < 10) {
-                    date += "0" + day;
-                } else {
-                    date += day;
-                }
-
-                if (month < 10) {
-                    date += "/0" + month;
-                } else {
-                    date += "/" + month;
-                }
-
-                date += "/" + year;
-                if (date.equals("06/04/2018")) {
-
-
-                } else {
-
-                }
-            }
-        });
-
-        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                Intent intent = new Intent(Kalender.this, KalenderNext.class);
-                String user = (String) adapterView.getItemAtPosition(position);
+                Intent intent = new Intent(VrijwilligerActivity.this, Profiel.class);
+                String user = (String) parent.getItemAtPosition(position);
                 for (Vrijwilliger vrijwilliger : deVrijwilliger) {
                     if (vrijwilliger.getNaam().equals(user)) {
                         intent.putExtra("Input", user);
                         break;
                     }
                 }
+
+
                 startActivity(intent);
+
+
             }
         });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.vrijwilliger, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+        if (id == R.id.action_calendar) {
+            Intent intent = new Intent(this, Kalender.class);
+            this.startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void uitLezenAlleVrijwilligers(String response) {
@@ -120,8 +120,6 @@ public class Kalender extends NavigationDrawer {
 
 
                 deVrijwilliger.add(vrijwilliger);
-
-
             }
 
             ArrayList<String> namen = new ArrayList<>();
@@ -130,7 +128,7 @@ public class Kalender extends NavigationDrawer {
             }
 
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, namen);
-            ListView lv = (ListView) findViewById(R.id.calendar_list);
+            ListView lv = (ListView) findViewById(R.id.lijst);
             lv.setAdapter(adapter);
 
         } catch (Exception e) {
@@ -138,6 +136,7 @@ public class Kalender extends NavigationDrawer {
         }
 
     }
+
 
     private void getDataAlleVrijwilligers(String strIp) {
         RequestQueue queue = Volley.newRequestQueue(this);
@@ -160,6 +159,5 @@ public class Kalender extends NavigationDrawer {
         //String response is het resultaat van de query (in xml format)
 
     }
-
 
 }

@@ -13,7 +13,7 @@ public class DataReader {
         // ----------------
         // VUL HET IP VAN DE COMPUTER IN
         // ----------------
-        strIp = "http://192.168.0.102:28479";
+        strIp = "http://145.49.70.24:28479";
         // ----------------
         // ****************
         //String strURL = strIp+":28479/weidevogelsBE/webresources/appweidevogels."+tabel;
