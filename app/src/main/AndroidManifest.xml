@@ -32,7 +32,7 @@
         </activity>
         <activity android:name=".NavigationDrawer" />
         <activity android:name=".BedrijfActivity" />
-        <activity android:name=".Vrijwilliger" />
+        <activity android:name=".VrijwilligerActivity" />
         <activity android:name=".Kalender" />
         <activity android:name=".Nesten" />
         <activity android:name=".Toestand" />
@@ -51,7 +51,12 @@
         <activity
             android:name=".GPS"
             android:label="@string/title_activity_gps" />
-        <activity android:name=".Home"></activity>
+        <activity android:name=".Home" />
+        <activity android:name=".Profiel" />
+        <activity
+            android:name=".KalenderNext"
+            android:label="@string/title_activity_kalender_next"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

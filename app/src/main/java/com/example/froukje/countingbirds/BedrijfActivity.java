@@ -42,6 +42,7 @@ public class BedrijfActivity extends NavigationDrawer {
         buildMenu();
         getDataAlleBedrijven(dr.getStrIp());
 
+
         lvUpper = (ListView) findViewById(R.id.lvUpper);
         tvBedrijf = (TextView) findViewById(R.id.tvBedrijf);
         tvBedrijfID = (TextView) findViewById(R.id.tvBedrijfID);
@@ -60,9 +61,15 @@ public class BedrijfActivity extends NavigationDrawer {
          ArrayList<String> bedrijfList = new ArrayList<String>();
          bedrijfList.addAll(Arrays.asList(planets));
 
+<<<<<<< HEAD
          listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, bedrijfList);
+=======
+
+        lvUpper.setAdapter(listAdapter);
+>>>>>>> Joey
 
          lvUpper.setAdapter(listAdapter);**/
+
 
         ListView lv = (ListView) findViewById(R.id.lvUpper);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -72,6 +79,7 @@ public class BedrijfActivity extends NavigationDrawer {
                 getData(dr.getStrIp());
             }
         });
+
     }
     private void getData(String strIp) {
         RequestQueue queue = Volley.newRequestQueue(this);
