@@ -15,6 +15,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
@@ -100,12 +101,17 @@ public class Nesten extends NavigationDrawer {
             NodeList alLegsels = (legsels.item(0)).getChildNodes();
             ArrayList<String> theLegsel = new ArrayList<>();
             for (int i = 0; i < alLegsels.getLength(); i++) {
-                Node n = alLegsels.item(i);
-                Node ei = n.getChildNodes().item(1);
-                Node legselNr = n.getChildNodes().item(3).getChildNodes().item(0);
-                Node soort = n.getChildNodes().item(4).getChildNodes().item(0);
+                Element n = (Element) alLegsels.item(i);
 
-                String strResult = "NestNr. " + legselNr.getTextContent() +": " + soort.getTextContent() +" ("+ ei.getTextContent() +")";
+                NodeList tag = n.getElementsByTagName("soort");
+                Node soortNode = tag.item(0);
+                NodeList tag1 = n.getElementsByTagName("legselnr");
+                Node legselNrNode = tag1.item(0);
+                NodeList tag2 = n.getElementsByTagName("ei");
+                Node eiNode = tag2.item(0);
+
+
+                String strResult = "NestNr. " + legselNrNode.getTextContent() +": " + soortNode.getTextContent() +" ("+ eiNode.getTextContent() +")";
                 theLegsel.add(strResult);
             }
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, theLegsel);
