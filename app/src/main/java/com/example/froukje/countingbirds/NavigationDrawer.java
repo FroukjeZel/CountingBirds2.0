@@ -6,10 +6,8 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-<<<<<<< HEAD
-=======
 import android.os.Bundle;
->>>>>>> Joey
+
 import android.view.MenuItem;
 
 public class NavigationDrawer extends AppCompatActivity {

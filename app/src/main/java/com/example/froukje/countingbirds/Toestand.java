@@ -6,7 +6,6 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.MultiAutoCompleteTextView;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -160,7 +159,7 @@ public class Toestand extends NavigationDrawer {
             {
                 toestand = Endangered.Risico;
             }
-            else if (totaalEieren < 500)
+            else if (totaalEieren <= 500 && totaalEieren >0)
             {
                 toestand = Endangered.Kritiek;
             }

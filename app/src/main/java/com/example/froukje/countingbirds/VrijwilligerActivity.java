@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.froukje.countingbirds.Classes.Persoon;
 import com.example.froukje.countingbirds.Classes.Vrijwilliger;
 
 import org.w3c.dom.Document;
@@ -31,7 +32,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 public class VrijwilligerActivity extends NavigationDrawer {
 
     private DataReader dr = new DataReader();
-    private ArrayList<Vrijwilliger> deVrijwilliger = new ArrayList<>();
+    private ArrayList<Persoon> deVrijwilliger = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class VrijwilligerActivity extends NavigationDrawer {
 
                 Intent intent = new Intent(VrijwilligerActivity.this, Profiel.class);
                 String user = (String) parent.getItemAtPosition(position);
-                for (Vrijwilliger vrijwilliger : deVrijwilliger) {
+                for (Persoon vrijwilliger : deVrijwilliger) {
                     if (vrijwilliger.getNaam().equals(user)) {
                         intent.putExtra("Input", user);
                         break;
@@ -116,14 +117,14 @@ public class VrijwilligerActivity extends NavigationDrawer {
                 NodeList tag3 = n.getElementsByTagName("postcode");
                 Node postcode = tag3.item(0);
 
-                Vrijwilliger vrijwilliger = new Vrijwilliger(bsn.getTextContent(), huisnummer.getTextContent(), naam.getTextContent(), postcode.getTextContent());
+                Persoon vrijwilliger = new Vrijwilliger(bsn.getTextContent(), huisnummer.getTextContent(), naam.getTextContent(), postcode.getTextContent());
 
 
                 deVrijwilliger.add(vrijwilliger);
             }
 
             ArrayList<String> namen = new ArrayList<>();
-            for (Vrijwilliger x : deVrijwilliger) {
+            for (Persoon x : deVrijwilliger) {
                 namen.add(x.getNaam());
             }
 
